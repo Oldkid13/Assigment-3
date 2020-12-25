@@ -12,7 +12,7 @@ class Query():
                 if userinf[1] == login[2]:
                     auth = userinf[2]
         if (auth != None):
-            return True
+            return auth
         return False
     #Retrives the staff id using username
     def getStaffId(self, connection, username):
@@ -151,9 +151,6 @@ class Query():
     #Splits the coming parameters according to space delimeter
     def splitParams(self, params):
         paramList = params.split()
-        print(params)
-        params = [" "," "," "]
-        print(params)
         return paramList
     
     #Replace dash with space on Historical Place Name 
