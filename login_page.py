@@ -18,18 +18,25 @@ class main():
         self.widgets()
 
     # To check if user is admin    
-    def checkAdmin(self, s):
-        return(True if s.endswith('A') else False)
+    def checkUserType(self,s):
+        return(True if s == "branchmanager" else False)
 
     # To after click login button
     def login(self):
-        client.send_one_message("Login " + str(self.username.get()) + " " + str(self.password.get()))
+
+        nameval=str(self.username.get())
+        if not nameval:
+            nameval="-"
+        passval=str(self.password.get())
+        if not passval:
+            passval="-"
+        client.send_one_message("Login " + nameval + " " + passval)
         results = client.recieve_messages()
         
         if results != "False":
             self.logf.pack_forget()
             # For admin page
-            if self.checkAdmin(self.username.get()):
+            if self.checkUserType(results):
                 root1.destroy()  
                 self.root2 = Tk()
                 self.root2.title("Administrator Page")
