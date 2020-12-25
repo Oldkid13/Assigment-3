@@ -20,6 +20,7 @@ class main():
     # To check if user is admin    
     def checkUserType(self,s):
         return(True if s == "branchmanager" else False)
+        #Yorum
 
     # To after click login button
     def login(self):
